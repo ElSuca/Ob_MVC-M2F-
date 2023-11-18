@@ -18,13 +18,35 @@ namespace ClasesObligatorio
             if (_instancia == null) _instancia = new Sistema();
             return _instancia;
         }
-        private void precargaAdmin()
+        private void precargaUsers()
         {
             RegisterAdmin(new Administrador("elAdmin@gmail.com", "laContrasena123"));
+            RegisterMiembro(new Miembro("elCosoLoco@gmail.com", "laReContrasena123", "elTuki", "Martinez", new DateTime(11 / 09 / 2001)));
+            RegisterMiembro(new Miembro("elGordoHater@yahoo.com", "losOdioATodos39", "ElHater", "Lopez", new DateTime(25 / 05 / 1989)));
+        }
+        private void precargaPublicaciones()
+        {
+            s_usuarioLogeado = GetUsuario("elCosoLoco@gmail.com");
+            RealizarPost("El Coso", "El coso va a revolucionar el universo. Diganme que estoy equivcado.", "coso.jpg");
+            RealizarPost("Reseña de Libro: 'Cómo Hablar con Plantas'", "Una guía hilarante para establecer una comunicación profunda con tu ficus.", "libro_plantas.jpg");
+            RealizarPost("Aventura en el País de las Mariposas Psicodélicas", "Sumérgete en un mundo de colores y mariposas que te guiarán a través de un viaje alucinante.", "mariposas_psicodelicas.jpg");
+            RealizarPost("Receta para Hacer Galletas que te Hacen Volar", "Ingredientes mágicos para galletas que desafían la gravedad. ¡No intentes esto en casa!", "galletas_voladoras.jpg");
+            RealizarPost("Oferta de Abrazos Gratis", "¡Hoy y siempre! Pasa por nuestra tienda y reclama tu abrazo gratis. ¡No se aceptan devoluciones!", "abrazos.jpg");
+            RealizarPost("El Futuro es hoy, ¿Oíste viejo?", "Les enseño como hacer un switch anidado.", "switch.png");
+            RealizarPost("Como desinstalar Zoom: Un tutorial", "Hoy les voy a enseñar como borrar Zoom de su computadora.", "tutorial.png");
+            s_usuarioLogeado = GetUsuario("elGordoHater@yahoo.com");
+            RealizarComentario(0, "Absurdo e Incomprensible", "Este 'Coso' es una locura sin sentido. No veo cómo puede revolucionar nada.");
+            RealizarComentario(1, "Libro Ridículo", "Hablar con plantas... ¿en serio? Este libro es una pérdida de papel.");
+            RealizarComentario(2, "Viaje Alucinante o Alucinado", "Esa aventura suena más como un mal viaje. ¿Mariposas psicodélicas? ¡No gracias!");
+            RealizarComentario(3, "Receta Confusa", "Los pasos son re confusos y me salieron horribles. Como vas a dejar las galletas en el horno por 3 dias?! cuando las saqué del horno parecían carbón.");
+            RealizarComentario(4, "Te viste en el espejo?", "Nadie te va a querer abrazar a vos !!");
+            RealizarComentario(5, "Tutorial Inútil", "Horrible tu tutorial.");
+            RealizarComentario(6, "Tutorial Confuso", "Este tutorial sobre cómo desinstalar Zoom solo me dejó más confundido. Y me parece que sos un bobo.");
         }
         private Sistema() 
         {
-            precargaAdmin();
+            precargaUsers();
+            precargaPublicaciones();
         }
         public Usuario UsuarioLogeado { get { return s_usuarioLogeado; } set { s_usuarioLogeado = value; } }
         public List<Usuario> GetUsuarios() { return _usuarios; }
@@ -43,7 +65,7 @@ namespace ClasesObligatorio
             }
             return elUsuario;
         }
-        public Boolean RealizarPost(string titulo, string texto, string imagen, char privacidad, DateTime fecha)
+        public Boolean RealizarPost(string titulo, string texto, string imagen)
         {
             Boolean esPublico;
             Boolean resultado = false;
@@ -51,11 +73,11 @@ namespace ClasesObligatorio
             Post post = new Post();
             if (post.ValidarTitulo(titulo) && post.ValidarContenido(texto))
             {
-                if (privacidad == 'S') esPublico = true; // Si es true es publico, de lo contrario false. 
-                else esPublico = false;                  // No está implementado en consola pero en el caso de que si, habría un mensaje parecido a lo siguente:
+                //if (privacidad == 'S') esPublico = true; // Si es true es publico, de lo contrario false. 
+                //else esPublico = false;                  // No está implementado en consola pero en el caso de que si, habría un mensaje parecido a lo siguente:
                 if (!autor.Bloqueado)                    // Desea que su post sea publico? S - Si | N - No.
                 {
-                    Post elPost = new Post(titulo, fecha, autor, texto, esPublico, imagen);
+                    Post elPost = new Post(titulo, autor, texto, imagen);
                     AddPublicacion(elPost);
                     resultado = true;
                 }
@@ -81,7 +103,6 @@ namespace ClasesObligatorio
             Publicacion laPublicacion = null;
             Miembro autor = (Miembro)s_usuarioLogeado;
             Comentario comentario = new Comentario();
-            DateTime fecha = DateTime.Today;
 
             if (!autor.Bloqueado)
             {
@@ -94,8 +115,8 @@ namespace ClasesObligatorio
                 }
                 if (comentario.ValidarTitulo(titulo) && comentario.ValidarContenido(texto) && laPublicacion != null)
                 {
-                    esPublico = laPublicacion.Privacidad; // Si un post es publico, el comentario también lo va a ser.
-                    Comentario elComentario = new Comentario(titulo, fecha, autor, texto, esPublico);
+                    //esPublico = laPublicacion.Privacidad; // Si un post es publico, el comentario también lo va a ser.
+                    Comentario elComentario = new Comentario(titulo, autor, texto);
                     AddPublicacion(elComentario);
                     (laPublicacion as Post).AddComentario(elComentario);
                     resultado = true;

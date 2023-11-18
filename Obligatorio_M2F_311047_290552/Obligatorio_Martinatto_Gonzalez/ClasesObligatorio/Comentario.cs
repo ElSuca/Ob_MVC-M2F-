@@ -8,15 +8,15 @@ namespace ClasesObligatorio
 {
     public class Comentario : Publicacion
     {
-        public Comentario(string titulo, DateTime fecha, Usuario autor, string contenido, Boolean privacidad)
+        public Comentario(string titulo, Usuario autor, string contenido)
         {
             Id = S_UltimoId;
             S_UltimoId++;
             Titulo = titulo;
             Autor = (Miembro)autor;
-            Fecha = fecha;
+            Fecha = DateTime.Now;
             Contenido = contenido;
-            Privacidad = privacidad;
+            //Privacidad = privacidad;
         }
         public Comentario() { }
         public override string ToString()

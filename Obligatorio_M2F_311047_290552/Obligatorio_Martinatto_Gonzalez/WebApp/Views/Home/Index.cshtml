@@ -1,8 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using ClasesObligatorio
+@model List<Publicacion>
+<h1>Bienvenido, @Context.Session.GetString("usuario")   </h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach(Publicacion publicacion in ViewBag.Publicaciones)
+{
+    @if (publicacion is Post)
+    {
+        <div class="cositoPaCenter">
+            <div class="card" style="width: 600px;">
+                <!--!<img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <strong><p class="card-text" name="titulo">@publicacion.Titulo</p></strong>
+                    <p class="card-text" name="contenido">@publicacion.Contenido</p>
+                    @foreach(Comentario comentario in (publicacion as Post).GetComentarios())
+                    {
+                        <div class="card-body">
+                            <strong><p class="card-text" name="titulo">@comentario.Titulo</p></strong>
+                            <p class="card-text" name="contenido">@comentario.Contenido</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -14,7 +14,7 @@ namespace ClasesObligatorio
         public Miembro Autor { get; set; }
         public DateTime Fecha { get; set; }
         public string Contenido { get; set; }
-        public Boolean Privacidad { get; set; }
+        //public Boolean Privacidad { get; set; }
         public Publicacion() { }
         private List<Reaccion> _reacciones = new List<Reaccion>();
         public List<Reaccion> GetReacciones()

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ClasesObligatorio;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApp.Models;
 
@@ -18,7 +19,12 @@ namespace WebApp.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
             {
                 return RedirectToAction("Login", "Login", new { mensaje = "No tienes acceso" });
-            } else return View();
+            }
+            else
+            {
+                ViewBag.Publicaciones = Sistema.GetInstancia().GetPublicaciones();
+                return View();
+            }
         }
 
         public IActionResult Privacy()

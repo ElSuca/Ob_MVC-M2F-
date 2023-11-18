@@ -33,7 +33,6 @@ namespace ClasesObligatorio
             this._bloqueado = false;
         }
         public Miembro(){ }
-        Sistema miSistema = Sistema.GetInstancia();
 
         
         

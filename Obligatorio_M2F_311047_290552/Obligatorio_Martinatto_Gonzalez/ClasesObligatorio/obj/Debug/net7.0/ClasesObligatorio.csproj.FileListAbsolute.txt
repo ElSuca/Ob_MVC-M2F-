@@ -42,3 +42,14 @@ C:\Users\sprin\Desktop\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonz
 C:\Users\sprin\Desktop\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\refint\ClasesObligatorio.dll
 C:\Users\sprin\Desktop\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.pdb
 C:\Users\sprin\Desktop\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ref\ClasesObligatorio.dll
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\bin\Debug\net7.0\ClasesObligatorio.deps.json
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\bin\Debug\net7.0\ClasesObligatorio.dll
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\bin\Debug\net7.0\ClasesObligatorio.pdb
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.AssemblyInfoInputs.cache
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.AssemblyInfo.cs
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.dll
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\refint\ClasesObligatorio.dll
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ClasesObligatorio.pdb
+C:\Users\Usuario\Ob_MVC-M2F-\Obligatorio_M2F_311047_290552\Obligatorio_Martinatto_Gonzalez\ClasesObligatorio\obj\Debug\net7.0\ref\ClasesObligatorio.dll

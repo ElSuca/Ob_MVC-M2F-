@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\proyetomvc\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\Users\\Usuario\\proyetomvc\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\WebApp.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\WebApp.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\proyetomvc\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\proyetomvc\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\proyetomvc\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj"
+            "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj"
             }
           }
         }

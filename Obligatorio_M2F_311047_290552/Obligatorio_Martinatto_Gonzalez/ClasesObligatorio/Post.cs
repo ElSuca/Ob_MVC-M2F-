@@ -14,15 +14,15 @@ namespace ClasesObligatorio
         public List<Comentario> GetComentarios() { return _comentarios; }
         public void AddComentario(Comentario unComentario) { _comentarios.Add(unComentario); }
 
-        public Post(string titulo, DateTime fecha, Usuario autor, string contenido, Boolean privacidad, string imagen)
+        public Post(string titulo, Usuario autor, string contenido, string imagen)
         {
             Id = S_UltimoId;
             S_UltimoId++;
             Titulo = titulo;
             Autor = (Miembro)autor;
-            Fecha = fecha;
+            Fecha = DateTime.Now;
             Contenido = contenido;
-            Privacidad = privacidad;
+            //Privacidad = privacidad;
             Imagen = imagen;
             Censurado = false;
             _comentarios = new List<Comentario>();
