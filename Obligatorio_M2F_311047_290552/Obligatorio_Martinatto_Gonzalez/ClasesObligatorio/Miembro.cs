@@ -12,8 +12,8 @@ namespace ClasesObligatorio
         private string _apellido;
         private DateTime _fechaNacimiento;
         private Boolean _bloqueado;
-        private List<Miembro> _amigos = new List<Miembro>();
-        private List<Solicitud> _solicitudes = new List<Solicitud>();  
+        private List<Miembro> _amigos;
+        private List<Solicitud> _solicitudes;
 
         public string Nombre { get { return _nombre; } set { _nombre = value; } }
         public string Apellido { get { return _apellido; } set { _apellido = value; } }
@@ -31,11 +31,11 @@ namespace ClasesObligatorio
             this._apellido = apellido;
             this._fechaNacimiento = fechaNacimiento;
             this._bloqueado = false;
+            this._amigos = new List<Miembro>();
+            this._solicitudes = new List<Solicitud>();
         }
         public Miembro(){ }
 
-        
-        
         public Boolean ValidarNomYapellido(string nombre, string apellido) // Valida que el nombre y apellido no sean vacíos.
         {
             Boolean resultado = false;

@@ -27,21 +27,21 @@ namespace ClasesObligatorio
         private void precargaPublicaciones()
         {
             s_usuarioLogeado = GetUsuario("elCosoLoco@gmail.com");
-            RealizarPost("El Coso", "El coso va a revolucionar el universo. Diganme que estoy equivcado.", "coso.jpg");
-            RealizarPost("Reseña de Libro: 'Cómo Hablar con Plantas'", "Una guía hilarante para establecer una comunicación profunda con tu ficus.", "libro_plantas.jpg");
-            RealizarPost("Aventura en el País de las Mariposas Psicodélicas", "Sumérgete en un mundo de colores y mariposas que te guiarán a través de un viaje alucinante.", "mariposas_psicodelicas.jpg");
-            RealizarPost("Receta para Hacer Galletas que te Hacen Volar", "Ingredientes mágicos para galletas que desafían la gravedad. ¡No intentes esto en casa!", "galletas_voladoras.jpg");
-            RealizarPost("Oferta de Abrazos Gratis", "¡Hoy y siempre! Pasa por nuestra tienda y reclama tu abrazo gratis. ¡No se aceptan devoluciones!", "abrazos.jpg");
-            RealizarPost("El Futuro es hoy, ¿Oíste viejo?", "Les enseño como hacer un switch anidado.", "switch.png");
-            RealizarPost("Como desinstalar Zoom: Un tutorial", "Hoy les voy a enseñar como borrar Zoom de su computadora.", "tutorial.png");
+            RealizarPost(new Post("El Coso", s_usuarioLogeado, "El coso va a revolucionar el universo. Diganme que estoy equivcado.", "coso.jpg", false));
+            RealizarPost(new Post("Reseña de Libro: 'Cómo Hablar con Plantas'", s_usuarioLogeado, "Una guía hilarante para establecer una comunicación profunda con tu ficus.", "libro_plantas.jpg", false));
+            RealizarPost(new Post("Aventura en el País de las Mariposas Psicodélicas", s_usuarioLogeado, "Sumérgete en un mundo de colores y mariposas que te guiarán a través de un viaje alucinante.", "mariposas_psicodelicas.jpg", false));
+            RealizarPost(new Post("Receta para Hacer Galletas que te Hacen Volar", s_usuarioLogeado, "Ingredientes mágicos para galletas que desafían la gravedad. ¡No intentes esto en casa!", "galletas_voladoras.jpg", false));
+            RealizarPost(new Post("Oferta de Abrazos Gratis", s_usuarioLogeado, "¡Hoy y siempre! Pasa por nuestra tienda y reclama tu abrazo gratis. ¡No se aceptan devoluciones!", "abrazos.jpg", false));
+            RealizarPost(new Post("El Futuro es hoy, ¿Oíste viejo?", s_usuarioLogeado, "Les enseño como hacer un switch anidado.", "switch.png", false));
+            RealizarPost(new Post("Como desinstalar Zoom: Un tutorial", s_usuarioLogeado, "Hoy les voy a enseñar como borrar Zoom de su computadora.", "tutorial.png", false));
             s_usuarioLogeado = GetUsuario("elGordoHater@yahoo.com");
-            RealizarComentario(0, "Absurdo e Incomprensible", "Este 'Coso' es una locura sin sentido. No veo cómo puede revolucionar nada.");
-            RealizarComentario(1, "Libro Ridículo", "Hablar con plantas... ¿en serio? Este libro es una pérdida de papel.");
-            RealizarComentario(2, "Viaje Alucinante o Alucinado", "Esa aventura suena más como un mal viaje. ¿Mariposas psicodélicas? ¡No gracias!");
-            RealizarComentario(3, "Receta Confusa", "Los pasos son re confusos y me salieron horribles. Como vas a dejar las galletas en el horno por 3 dias?! cuando las saqué del horno parecían carbón.");
-            RealizarComentario(4, "Te viste en el espejo?", "Nadie te va a querer abrazar a vos !!");
-            RealizarComentario(5, "Tutorial Inútil", "Horrible tu tutorial.");
-            RealizarComentario(6, "Tutorial Confuso", "Este tutorial sobre cómo desinstalar Zoom solo me dejó más confundido. Y me parece que sos un bobo.");
+            RealizarComentario(new Comentario("Absurdo e Incomprensible",s_usuarioLogeado, "Este 'Coso' es una locura sin sentido. No veo cómo puede revolucionar nada.", false), 0);
+            RealizarComentario(new Comentario("Libro Ridículo", s_usuarioLogeado, "Hablar con plantas... ¿en serio? Este libro es una pérdida de papel.", false),1);
+            RealizarComentario(new Comentario("Viaje Alucinante o Alucinado", s_usuarioLogeado, "Esa aventura suena más como un mal viaje. ¿Mariposas psicodélicas? ¡No gracias!", false),2);
+            RealizarComentario(new Comentario("Receta Confusa", s_usuarioLogeado, "Los pasos son re confusos y me salieron horribles. Como vas a dejar las galletas en el horno por 3 dias?! cuando las saqué del horno parecían carbón.", false),3);
+            RealizarComentario(new Comentario("Te viste en el espejo?", s_usuarioLogeado, "Nadie te va a querer abrazar a vos !!", false),4);
+            RealizarComentario(new Comentario("Tutorial Inútil", s_usuarioLogeado, "Horrible tu tutorial.", false),5);
+            RealizarComentario(new Comentario("Tutorial Confuso", s_usuarioLogeado, "Este tutorial sobre cómo desinstalar Zoom solo me dejó más confundido. Y me parece que sos un bobo.", false),6);
         }
         private Sistema() 
         {
@@ -65,19 +65,15 @@ namespace ClasesObligatorio
             }
             return elUsuario;
         }
-        public Boolean RealizarPost(string titulo, string texto, string imagen)
+        public Boolean RealizarPost(Post elPost)
         {
-            Boolean esPublico;
             Boolean resultado = false;
             Miembro autor = (Miembro)s_usuarioLogeado;
             Post post = new Post();
-            if (post.ValidarTitulo(titulo) && post.ValidarContenido(texto))
+            if (post.ValidarTitulo(elPost.Titulo) && post.ValidarContenido(elPost.Contenido))
             {
-                //if (privacidad == 'S') esPublico = true; // Si es true es publico, de lo contrario false. 
-                //else esPublico = false;                  // No está implementado en consola pero en el caso de que si, habría un mensaje parecido a lo siguente:
-                if (!autor.Bloqueado)                    // Desea que su post sea publico? S - Si | N - No.
+                if (!autor.Bloqueado)
                 {
-                    Post elPost = new Post(titulo, autor, texto, imagen);
                     AddPublicacion(elPost);
                     resultado = true;
                 }
@@ -96,9 +92,8 @@ namespace ClasesObligatorio
             }
             return resultado;
         }
-        public Boolean RealizarComentario(int idPost, string titulo, string texto)
+        public Boolean RealizarComentario(Comentario elComentario, int idPost)
         {
-            Boolean esPublico;
             Boolean resultado = false;
             Publicacion laPublicacion = null;
             Miembro autor = (Miembro)s_usuarioLogeado;
@@ -113,16 +108,13 @@ namespace ClasesObligatorio
                         laPublicacion = unaPublicacion;
                     }
                 }
-                if (comentario.ValidarTitulo(titulo) && comentario.ValidarContenido(texto) && laPublicacion != null)
+                if (comentario.ValidarTitulo(elComentario.Titulo) && comentario.ValidarContenido(elComentario.Contenido) && laPublicacion != null)
                 {
-                    //esPublico = laPublicacion.Privacidad; // Si un post es publico, el comentario también lo va a ser.
-                    Comentario elComentario = new Comentario(titulo, autor, texto);
+                    elComentario.EsPrivado = laPublicacion.EsPrivado; // Si un post es publico, el comentario también lo va a ser.
                     AddPublicacion(elComentario);
                     (laPublicacion as Post).AddComentario(elComentario);
                     resultado = true;
                 }
-                resultado = true;
-
             }
             return resultado;
         }
@@ -305,7 +297,7 @@ namespace ClasesObligatorio
         }
 
         public void Reaccionar(string tipoReaccion, int id)     // No está implementado en consola, placeholder para implementar: 
-        {                                                       // Que reaccion desea hacer en $POST_TITLE$ ? 1 - like | 2 - dislike
+        {                                                       // Que reaccion desea hacer en $POST_TITLE$ ? 1 - like | 2 - dislike   <----- al final esto no se hace xd
             foreach (Publicacion publicacion in _publicaciones)
             {
                 if (publicacion.Id == id)

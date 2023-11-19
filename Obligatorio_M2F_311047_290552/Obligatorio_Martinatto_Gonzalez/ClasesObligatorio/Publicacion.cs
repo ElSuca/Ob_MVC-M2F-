@@ -12,18 +12,14 @@ namespace ClasesObligatorio
         public static int S_UltimoId { get; set; }
         public string Titulo { get; set; }
         public Miembro Autor { get; set; }
+        public bool EsPrivado { get; set; }
         public DateTime Fecha { get; set; }
         public string Contenido { get; set; }
-        //public Boolean Privacidad { get; set; }
         public Publicacion() { }
-        private List<Reaccion> _reacciones = new List<Reaccion>();
-        public List<Reaccion> GetReacciones()
-        {
-            return _reacciones;
-        }
+        public List<Reaccion> Reacciones {get; set;}
         public void AddReaccion(Reaccion unaReaccion)
         {
-            _reacciones.Add(unaReaccion);
+            Reacciones.Add(unaReaccion);
         }
 
         public virtual Boolean ValidarTitulo(string titulo) // Valida que el titulo no sea vacío.
@@ -44,7 +40,25 @@ namespace ClasesObligatorio
             }
             return result;
         }
-
+        public abstract int CalcularVA(Publicacion publicacion);
+        public int devolverLikes(List<Reaccion> lista)
+        {
+            int cantidad = 0;
+            foreach(Reaccion reaccion in lista)
+            {
+                if(reaccion.TipoReaccion == TipoReaccion.like) cantidad++;
+            }
+            return cantidad;
+        }
+        public int devolverDislikes(List<Reaccion> lista)
+        {
+            int cantidad = 0;
+            foreach (Reaccion reaccion in lista)
+            {
+                if (reaccion.TipoReaccion == TipoReaccion.dislike) cantidad++;
+            }
+            return cantidad;
+        }
         public int CompareTo(Publicacion? other)
         {
             return Titulo.CompareTo(other.Titulo);
