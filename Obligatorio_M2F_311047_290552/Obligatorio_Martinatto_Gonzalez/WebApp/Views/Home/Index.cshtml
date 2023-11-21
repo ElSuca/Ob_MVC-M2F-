@@ -11,8 +11,22 @@
             <div class="card bg-black" style="width: 600px;">
                 <img class="card-img-top" src="~/img/@post.Imagen" alt="...">
                 <div class="card-body bg-black rounded">
-                    <strong><p class="card-text text-white" name="titulo">"@publicacion.Titulo" <br> Posteado por: "@publicacion.Autor.Nombre" | @publicacion.Fecha</p></strong>
+                    <strong><p class="card-text text-white" style="padding-top:10px;" name="titulo">"@publicacion.Titulo" <br> Posteado por: "@publicacion.Autor.Nombre" | @publicacion.Fecha</p></strong>
                     <p class="card-text text-white" name="contenido">@publicacion.Contenido</p>
+                    <form method="post" action="~/Home/Like" style="display:inline;">
+                        <div class="cosoLike">
+                            <input type="hidden" name="idPubli" value="@publicacion.Id">
+                            <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
+                            <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@publicacion.devolverLikes(publicacion.Reacciones)</p></strong>
+                        </div>
+                    </form>
+                    <form method="post" action="~/Home/Dislike" style="display:inline;">
+                        <div class="cosoLike">
+                            <input type="hidden" name="idPubli" value="@publicacion.Id">
+                            <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
+                            <strong><p class="card-text text-white" style="display:inline;">@publicacion.devolverDislikes(publicacion.Reacciones)</p></strong>
+                        </div>
+                    </form>
                     @if ((publicacion as Post).GetComentarios() != null)
                     {
                         @foreach (Comentario comentario in (publicacion as Post).GetComentarios())
@@ -20,7 +34,22 @@
                             <div class="card-body bg-dark rounded">
                                 <strong><p class="card-text text-white" name="titulo">"@comentario.Titulo" <br> Posteado por: "@comentario.Autor.Nombre" | @publicacion.Fecha</p></strong>
                                 <p class="card-text text-white" name="contenido">@comentario.Contenido</p>
+                                <form method="post" action="~/Home/Like" style="display:inline;">
+                                    <div class="cosoLike">
+                                        <input type="hidden" name="idPubli" value="@comentario.Id">
+                                        <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
+                                        <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@comentario.devolverLikes(comentario.Reacciones)</p></strong>
+                                    </div>
+                                </form>
+                                <form method="post" action="~/Home/Dislike" style="display:inline;">
+                                    <div class="cosoLike">
+                                        <input type="hidden" name="idPubli" value="@comentario.Id">
+                                        <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
+                                        <strong><p class="card-text text-white" style="display:inline;">@comentario.devolverDislikes(comentario.Reacciones)</p></strong>
+                                    </div>
+                                </form>
                             </div>
+
                         }
                     }
                 </div>

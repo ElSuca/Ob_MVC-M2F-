@@ -65,6 +65,18 @@ namespace ClasesObligatorio
             }
             return elUsuario;
         }
+        public Publicacion GetPublicacion(int id)
+        {
+            Publicacion laPublicacion = null;
+            foreach(Publicacion publicacion in _publicaciones)
+            {
+                if(publicacion.Id == id)
+                {
+                    laPublicacion = publicacion;
+                }
+            }
+            return laPublicacion;
+        }
         public Boolean RealizarPost(Post elPost)
         {
             Boolean resultado = false;

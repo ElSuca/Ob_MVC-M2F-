@@ -54,3 +54,57 @@ a {
 #register{
     padding-left:12px;
 }
+
+.botonLike {
+    display: inline;
+    text-align: center;
+    width: 30px;
+    padding: 0;
+    border: solid transparent 0px;
+    margin-bottom: 10px;
+    height: 28px;
+    background-color: white;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.botonLike img{
+    width:20px;
+}
+
+.botonLike:hover {
+    background-color: green;
+    color: black;
+    transition: 0.2s;
+}
+
+.botonDislike {
+    display: inline;
+    text-align: center;
+    width: 30px;
+    border: solid transparent 0px;
+    padding: 0;
+    height: 28px;
+    background-color: white;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .botonDislike img {
+        width: 20px;
+    }
+
+    .botonDislike:hover {
+        background-color: #e53136;
+        color: black;
+        transition: 0.2s;
+    }
+
+    .cosoLike{
+        display:inline;
+    }

@@ -40,6 +40,18 @@ namespace ClasesObligatorio
             }
             return result;
         }
+        public virtual Reaccion GetReaccion(Miembro miembro)
+        {
+            Reaccion laReaccion = null;
+            foreach(Reaccion reaccion in Reacciones)
+            {
+                if(reaccion.Miembro == miembro)
+                {
+                    laReaccion = reaccion;
+                }
+            }
+            return laReaccion;
+        }
         public abstract int CalcularVA(Publicacion publicacion);
         public int devolverLikes(List<Reaccion> lista)
         {

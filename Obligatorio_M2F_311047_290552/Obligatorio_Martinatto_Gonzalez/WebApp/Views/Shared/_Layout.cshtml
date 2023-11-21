@@ -18,7 +18,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 position-relative">
                         @if (string.IsNullOrEmpty(Context.Session.GetString("usuario")))
                         {
                             <li class="nav-item">
@@ -34,10 +34,10 @@
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Publicacion" asp-action="Postear">Subir un Post</a>
+                            </li>
+                            <li class="nav-item text-right position-absolute top-0 end-0">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
                             </li>
                         }
                     </ul>
