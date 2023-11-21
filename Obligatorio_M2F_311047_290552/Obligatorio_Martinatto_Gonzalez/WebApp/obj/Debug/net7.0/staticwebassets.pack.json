@@ -13,6 +13,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\1e1.jpg",
+      "PackagePath": "staticwebassets\\img\\1e1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\gatoputo.jpg",
+      "PackagePath": "staticwebassets\\img\\gatoputo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\henchman.png",
+      "PackagePath": "staticwebassets\\img\\henchman.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\libro_plantas.png",
+      "PackagePath": "staticwebassets\\img\\libro_plantas.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\mariposas_psicodelicas.png",
+      "PackagePath": "staticwebassets\\img\\mariposas_psicodelicas.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\nerd.jpg",
+      "PackagePath": "staticwebassets\\img\\nerd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\onedolar.jpg",
+      "PackagePath": "staticwebassets\\img\\onedolar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\tutorial.png",
+      "PackagePath": "staticwebassets\\img\\tutorial.png"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

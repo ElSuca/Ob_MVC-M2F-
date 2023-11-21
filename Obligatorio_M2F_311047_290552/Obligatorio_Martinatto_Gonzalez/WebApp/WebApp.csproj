@@ -10,4 +10,8 @@
     <ProjectReference Include="..\ClasesObligatorio\ClasesObligatorio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

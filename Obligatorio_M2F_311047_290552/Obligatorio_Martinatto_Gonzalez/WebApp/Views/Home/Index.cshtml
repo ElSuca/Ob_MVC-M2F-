@@ -1,23 +1,27 @@
 ﻿@using ClasesObligatorio
 @model List<Publicacion>
-<h1>Bienvenido, @Context.Session.GetString("usuario")   </h1>
+<h2 class="text-white text-center">Bienvenido!</h2>
 
 @foreach(Publicacion publicacion in ViewBag.Publicaciones)
 {
     @if (publicacion is Post)
     {
+        Post post = publicacion as Post;
         <div class="cositoPaCenter">
-            <div class="card" style="width: 600px;">
-                <!--!<img src="..." class="card-img-top" alt="...">-->
-                <div class="card-body">
-                    <strong><p class="card-text" name="titulo">@publicacion.Titulo</p></strong>
-                    <p class="card-text" name="contenido">@publicacion.Contenido</p>
-                    @foreach(Comentario comentario in (publicacion as Post).GetComentarios())
+            <div class="card bg-black" style="width: 600px;">
+                <img class="card-img-top" src="~/img/@post.Imagen" alt="...">
+                <div class="card-body bg-black rounded">
+                    <strong><p class="card-text text-white" name="titulo">"@publicacion.Titulo" <br> Posteado por: "@publicacion.Autor.Nombre" | @publicacion.Fecha</p></strong>
+                    <p class="card-text text-white" name="contenido">@publicacion.Contenido</p>
+                    @if ((publicacion as Post).GetComentarios() != null)
                     {
-                        <div class="card-body">
-                            <strong><p class="card-text" name="titulo">@comentario.Titulo</p></strong>
-                            <p class="card-text" name="contenido">@comentario.Contenido</p>
-                        </div>
+                        @foreach (Comentario comentario in (publicacion as Post).GetComentarios())
+                        {
+                            <div class="card-body bg-dark rounded">
+                                <strong><p class="card-text text-white" name="titulo">"@comentario.Titulo" <br> Posteado por: "@comentario.Autor.Nombre" | @publicacion.Fecha</p></strong>
+                                <p class="card-text text-white" name="contenido">@comentario.Contenido</p>
+                            </div>
+                        }
                     }
                 </div>
             </div>

@@ -27,12 +27,12 @@ namespace ClasesObligatorio
         private void precargaPublicaciones()
         {
             s_usuarioLogeado = GetUsuario("elCosoLoco@gmail.com");
-            RealizarPost(new Post("El Coso", s_usuarioLogeado, "El coso va a revolucionar el universo. Diganme que estoy equivcado.", "coso.jpg", false));
-            RealizarPost(new Post("Reseña de Libro: 'Cómo Hablar con Plantas'", s_usuarioLogeado, "Una guía hilarante para establecer una comunicación profunda con tu ficus.", "libro_plantas.jpg", false));
-            RealizarPost(new Post("Aventura en el País de las Mariposas Psicodélicas", s_usuarioLogeado, "Sumérgete en un mundo de colores y mariposas que te guiarán a través de un viaje alucinante.", "mariposas_psicodelicas.jpg", false));
-            RealizarPost(new Post("Receta para Hacer Galletas que te Hacen Volar", s_usuarioLogeado, "Ingredientes mágicos para galletas que desafían la gravedad. ¡No intentes esto en casa!", "galletas_voladoras.jpg", false));
-            RealizarPost(new Post("Oferta de Abrazos Gratis", s_usuarioLogeado, "¡Hoy y siempre! Pasa por nuestra tienda y reclama tu abrazo gratis. ¡No se aceptan devoluciones!", "abrazos.jpg", false));
-            RealizarPost(new Post("El Futuro es hoy, ¿Oíste viejo?", s_usuarioLogeado, "Les enseño como hacer un switch anidado.", "switch.png", false));
+            RealizarPost(new Post("El Coso", s_usuarioLogeado, "El coso va a revolucionar el universo. Diganme que estoy equivcado.", "gatoputo.jpg", false));
+            RealizarPost(new Post("Reseña de Libro: 'Cómo Hablar con Plantas'", s_usuarioLogeado, "Una guía hilarante para establecer una comunicación profunda con tu ficus.", "libro_plantas.png", false));
+            RealizarPost(new Post("Aventura en el País de las Mariposas Psicodélicas", s_usuarioLogeado, "Sumérgete en un mundo de colores y mariposas que te guiarán a través de un viaje alucinante.", "mariposas_psicodelicas.png", false));
+            RealizarPost(new Post("Receta para Hacer Galletas que te Hacen Volar", s_usuarioLogeado, "Ingredientes mágicos para galletas que desafían la gravedad. ¡No intentes esto en casa!", "henchman.png", false));
+            RealizarPost(new Post("Oferta de Abrazos Gratis", s_usuarioLogeado, "¡Hoy y siempre! Pasa por nuestra tienda y reclama tu abrazo gratis. ¡No se aceptan devoluciones!", "onedolar.jpg", false));
+            RealizarPost(new Post("El Futuro es hoy, ¿Oíste viejo?", s_usuarioLogeado, "Les enseño como hacer un switch anidado.", "nerd.jpg", false));
             RealizarPost(new Post("Como desinstalar Zoom: Un tutorial", s_usuarioLogeado, "Hoy les voy a enseñar como borrar Zoom de su computadora.", "tutorial.png", false));
             s_usuarioLogeado = GetUsuario("elGordoHater@yahoo.com");
             RealizarComentario(new Comentario("Absurdo e Incomprensible",s_usuarioLogeado, "Este 'Coso' es una locura sin sentido. No veo cómo puede revolucionar nada.", false), 0);
@@ -68,8 +68,10 @@ namespace ClasesObligatorio
         public Boolean RealizarPost(Post elPost)
         {
             Boolean resultado = false;
-            Miembro autor = (Miembro)s_usuarioLogeado;
+            Miembro autor = s_usuarioLogeado as Miembro;
             Post post = new Post();
+            elPost.Autor = autor;
+            elPost.Fecha = DateTime.Now;
             if (post.ValidarTitulo(elPost.Titulo) && post.ValidarContenido(elPost.Contenido))
             {
                 if (!autor.Bloqueado)

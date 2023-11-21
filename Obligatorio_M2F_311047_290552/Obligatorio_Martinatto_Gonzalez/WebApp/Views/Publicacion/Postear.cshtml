@@ -1,0 +1,38 @@
+﻿@using ClasesObligatorio
+@model Post
+
+<div class="cositoPaCenter">
+    <div class="login-container">
+        <form class="row g-3" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="autor" value="@ViewBag.Autor">
+            <div class="col-md-6">
+                <label for="inputTitle" class="form-label text-white">Titulo del Post</label>
+                <input type="text" class="form-control bg-dark text-white" id="inputTitle" name="titulo" placeholder="Titulo...">
+            </div>
+            <div class="col-md-6">
+                <label for="form-select" class="form-label text-white">Es Publico?</label>
+                <select class="form-select bg-dark text-white" aria-label="Default select example" name="esPrivado">
+                    <option selected value="false">Si</option>
+                    <option value="true">No</option>
+                </select>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control bg-dark text-white" placeholder="Descripcion..." id="floatingTextarea" name="contenido"></textarea>
+                <label for="floatingTextarea" class="form-label text-white">Contenido</label>
+            </div>
+            <div class="form-group">
+                <label for="foto" class="control-label text-white">Imagen del Post</label>
+                <input type="file" name="foto" class="form-control bg-dark text-white" />
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary bg-dark">Subir Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

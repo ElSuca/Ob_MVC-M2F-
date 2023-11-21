@@ -53,10 +53,6 @@ namespace ClasesObligatorio
             }
             return resultado;
         }
-        public override string ToString()
-        {
-            return "{ Nombre: " + Nombre + " Apellido: " + Apellido + " Email: " + Email + " | Fecha de Nacimiento: " + FechaNacimiento  + " }";
-        }
     }
 }
 
