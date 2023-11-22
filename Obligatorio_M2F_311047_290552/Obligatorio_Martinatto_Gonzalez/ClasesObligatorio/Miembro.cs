@@ -12,8 +12,8 @@ namespace ClasesObligatorio
         private string _apellido;
         private DateTime _fechaNacimiento;
         private Boolean _bloqueado;
-        private List<Miembro> _amigos;
-        private List<Solicitud> _solicitudes;
+        private List<Miembro> _amigos = new List<Miembro>();
+        private List<Solicitud> _solicitudes = new List<Solicitud>();
 
         public string Nombre { get { return _nombre; } set { _nombre = value; } }
         public string Apellido { get { return _apellido; } set { _apellido = value; } }
@@ -50,6 +50,15 @@ namespace ClasesObligatorio
                     if(apellido.Contains(numero)) tieneNum = true;
                 }
                 if(!tieneNum) resultado=true;
+            }
+            return resultado;
+        }
+        public Boolean EsAmigo(Miembro miembro)
+        {
+            Boolean resultado = false;
+            foreach(Miembro amigo in this._amigos)
+            {
+                if (amigo == miembro) resultado = true;
             }
             return resultado;
         }

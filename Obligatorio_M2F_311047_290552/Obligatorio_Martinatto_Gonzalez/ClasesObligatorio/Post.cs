@@ -10,7 +10,7 @@ namespace ClasesObligatorio
     {
         public string Imagen {  get; set; }
         public Boolean Censurado {  get; set; }
-        private List<Comentario> _comentarios;
+        private List<Comentario> _comentarios = new List<Comentario>();
         public List<Comentario> GetComentarios() { return _comentarios; }
         public void AddComentario(Comentario unComentario) { _comentarios.Add(unComentario); }
         private static int s_fva_likes = 5;

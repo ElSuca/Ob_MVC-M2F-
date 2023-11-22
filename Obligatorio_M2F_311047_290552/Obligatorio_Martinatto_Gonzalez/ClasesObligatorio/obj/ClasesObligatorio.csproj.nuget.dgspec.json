@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sprin\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {}
+    "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sprin\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {
+    "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sprin\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj",
         "projectName": "ClasesObligatorio",
-        "projectPath": "C:\\Users\\sprin\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj",
-        "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sprin\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\ClasesObligatorio.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\ClasesObligatorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,0 +1,76 @@
+﻿@using ClasesObligatorio;
+<h2 class="text-white">Resultados Encontrados</h2>
+@foreach (Publicacion publicacion in ViewBag.lista)
+{
+    @if (publicacion.EsPrivado == false || publicacion.Autor.EsAmigo(ViewBag.User) || publicacion.Autor == ViewBag.User)
+    {
+        <div class="cositoPaCenter">
+            @if(publicacion is Post)
+            {
+                Post post = publicacion as Post;
+                <div class="card bg-black" style="width: 600px;">
+                    <img class="card-img-top" src="~/img/@post.Imagen" alt="...">
+                    <div class="card-body bg-black rounded">
+                        <strong>
+                            <p class="card-text text-white" style="padding-top:10px; display:inline;" name="titulo">
+                                "@publicacion.Titulo"
+                                <br>
+                                Posteado por: "@publicacion.Autor.Nombre"
+                                @if (!publicacion.Autor.EsAmigo(ViewBag.User) && publicacion.Autor != ViewBag.User)
+                                {
+                                    <form method="post" action="~/Home/EnviarSolicitud" style="display:inline;">
+                                        <div class="cosoLike">
+                                            <input type="hidden" name="emailReceptor" value="@publicacion.Autor.Email">
+                                            <button type="submit" class="botonLike"><img src="~/css/add-user.png" /></button>
+                                        </div>
+                                    </form>
+                                }
+                                @if (publicacion.Autor.EsAmigo(ViewBag.User))
+                                {
+                                <p class="text-success" style="display:inline;">(Amigo)</p>
+                                }
+                                @if (publicacion.Autor == ViewBag.User)
+                                {
+                                <p class="text-success" style="display:inline;">(Tu)</p>
+                                }
+                            <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @publicacion.Fecha</p>
+                            </p>
+                        </strong>
+                    </div>
+                </div>
+            }
+            @if(publicacion is Comentario)
+            {
+                <div class="card bg-black" style="width: 600px;">
+                    <div class="card-body bg-black rounded">
+                        <strong>
+                            <p class="card-text text-white" style="padding-top:10px; display:inline;" name="titulo">
+                                "@publicacion.Titulo"
+                                <br>
+                                Posteado por: "@publicacion.Autor.Nombre"
+                                @if (!publicacion.Autor.EsAmigo(ViewBag.User) && publicacion.Autor != ViewBag.User)
+                                {
+                                    <form method="post" action="~/Home/EnviarSolicitud" style="display:inline;">
+                                        <div class="cosoLike">
+                                            <input type="hidden" name="emailReceptor" value="@publicacion.Autor.Email">
+                                            <button type="submit" class="botonLike"><img src="~/css/add-user.png" /></button>
+                                        </div>
+                                    </form>
+                                }
+                                @if (publicacion.Autor.EsAmigo(ViewBag.User))
+                                {
+                                <p class="text-success" style="display:inline;">(Amigo)</p>
+                                }
+                                @if (publicacion.Autor == ViewBag.User)
+                                {
+                                <p class="text-success" style="display:inline;">(Tu)</p>
+                                }
+                            <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @publicacion.Fecha</p>
+                            </p>
+                        </strong>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

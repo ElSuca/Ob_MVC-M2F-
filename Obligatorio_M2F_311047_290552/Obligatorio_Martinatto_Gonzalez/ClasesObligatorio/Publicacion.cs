@@ -15,12 +15,8 @@ namespace ClasesObligatorio
         public bool EsPrivado { get; set; }
         public DateTime Fecha { get; set; }
         public string Contenido { get; set; }
+        public List<Reaccion> Reacciones = new List<Reaccion>();
         public Publicacion() { }
-        public List<Reaccion> Reacciones {get; set;}
-        public void AddReaccion(Reaccion unaReaccion)
-        {
-            Reacciones.Add(unaReaccion);
-        }
 
         public virtual Boolean ValidarTitulo(string titulo) // Valida que el titulo no sea vacío.
         {
@@ -43,11 +39,14 @@ namespace ClasesObligatorio
         public virtual Reaccion GetReaccion(Miembro miembro)
         {
             Reaccion laReaccion = null;
-            foreach(Reaccion reaccion in Reacciones)
+            if (Reacciones != null)
             {
-                if(reaccion.Miembro == miembro)
+                foreach (Reaccion reaccion in Reacciones)
                 {
-                    laReaccion = reaccion;
+                    if (reaccion.Miembro == miembro)
+                    {
+                        laReaccion = reaccion;
+                    }
                 }
             }
             return laReaccion;
@@ -56,18 +55,24 @@ namespace ClasesObligatorio
         public int devolverLikes(List<Reaccion> lista)
         {
             int cantidad = 0;
-            foreach(Reaccion reaccion in lista)
+            if (lista != null)
             {
-                if(reaccion.TipoReaccion == TipoReaccion.like) cantidad++;
+                foreach (Reaccion reaccion in lista)
+                {
+                    if (reaccion.TipoReaccion == TipoReaccion.like) cantidad++;
+                }
             }
             return cantidad;
         }
         public int devolverDislikes(List<Reaccion> lista)
         {
             int cantidad = 0;
-            foreach (Reaccion reaccion in lista)
+            if (lista != null)
             {
-                if (reaccion.TipoReaccion == TipoReaccion.dislike) cantidad++;
+                foreach (Reaccion reaccion in lista)
+                {
+                    if (reaccion.TipoReaccion == TipoReaccion.dislike) cantidad++;
+                }
             }
             return cantidad;
         }

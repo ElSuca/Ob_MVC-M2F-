@@ -23,6 +23,7 @@ namespace ClasesObligatorio
             RegisterAdmin(new Administrador("elAdmin@gmail.com", "laContrasena123"));
             RegisterMiembro(new Miembro("elCosoLoco@gmail.com", "laReContrasena123", "elTuki", "Martinez", new DateTime(11 / 09 / 2001)));
             RegisterMiembro(new Miembro("elGordoHater@yahoo.com", "losOdioATodos39", "ElHater", "Lopez", new DateTime(25 / 05 / 1989)));
+            RegisterMiembro(new Miembro("laGordaHater@yahoo.com", "amoAlGordo25", "LaHater", "García", new DateTime(30 / 01 / 1993)));
         }
         private void precargaPublicaciones()
         {
@@ -42,11 +43,21 @@ namespace ClasesObligatorio
             RealizarComentario(new Comentario("Te viste en el espejo?", s_usuarioLogeado, "Nadie te va a querer abrazar a vos !!", false),4);
             RealizarComentario(new Comentario("Tutorial Inútil", s_usuarioLogeado, "Horrible tu tutorial.", false),5);
             RealizarComentario(new Comentario("Tutorial Confuso", s_usuarioLogeado, "Este tutorial sobre cómo desinstalar Zoom solo me dejó más confundido. Y me parece que sos un bobo.", false),6);
+            
+        }
+        private void precargaSolicitudes()
+        {
+            s_usuarioLogeado = GetUsuario("laGordaHater@yahoo.com");
+            EnviarSolicitud("elGordoHater@yahoo.com");
+            EnviarSolicitud("elCosoLoco@gmail.com");
+            s_usuarioLogeado = GetUsuario("elGordoHater@yahoo.com");
+            AceptarSolicitud(0);
         }
         private Sistema() 
         {
             precargaUsers();
             precargaPublicaciones();
+            precargaSolicitudes();
         }
         public Usuario UsuarioLogeado { get { return s_usuarioLogeado; } set { s_usuarioLogeado = value; } }
         public List<Usuario> GetUsuarios() { return _usuarios; }
@@ -151,6 +162,7 @@ namespace ClasesObligatorio
         public Boolean EnviarSolicitud(string emailReceptor)
         {
             Boolean resultado = false;
+            Miembro receptor = GetUsuario(emailReceptor) as Miembro;
             foreach (Usuario usuario in _usuarios)
             {
                 if (usuario is Miembro) // Solo un usuario puede enviar solicitudes
@@ -160,6 +172,7 @@ namespace ClasesObligatorio
                         if (s_usuarioLogeado is Miembro miembroEmisor && !miembroEmisor.Bloqueado)
                         {
                             Solicitud solicitud = new Solicitud((s_usuarioLogeado as Miembro), (usuario as Miembro));
+                            receptor.AddSolicitud(solicitud);
                             resultado = true;
                         }
                     }
@@ -282,7 +295,7 @@ namespace ClasesObligatorio
         public Boolean AceptarSolicitud(int id)
         {
             Boolean solicitudEncontrada = false;
-            Miembro miembro = new Miembro();
+            Miembro miembro = s_usuarioLogeado as Miembro;
             foreach (Solicitud solicitud in miembro.GetSolicitudes())
             {
                 if (id == solicitud.Id)
@@ -310,25 +323,6 @@ namespace ClasesObligatorio
             return solicitudEncontrada;
         }
 
-        public void Reaccionar(string tipoReaccion, int id)     // No está implementado en consola, placeholder para implementar: 
-        {                                                       // Que reaccion desea hacer en $POST_TITLE$ ? 1 - like | 2 - dislike   <----- al final esto no se hace xd
-            foreach (Publicacion publicacion in _publicaciones)
-            {
-                if (publicacion.Id == id)
-                {
-                    if (tipoReaccion == "like")
-                    {
-                        Reaccion unaReaccion = new Reaccion(TipoReaccion.like, (Miembro)UsuarioLogeado);
-                        publicacion.AddReaccion(unaReaccion);
-                    }
-                    else
-                    {
-                        Reaccion unaReaccion = new Reaccion(TipoReaccion.dislike, (Miembro)UsuarioLogeado);
-                        publicacion.AddReaccion(unaReaccion);
-                    }
-                }
-            }
-        }
         public List<string> GetMiembrosActivos() // Devuelve los miembros que más posts han hecho.
         {
             List<string> lista = new List<string>();

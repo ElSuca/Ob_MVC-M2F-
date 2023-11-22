@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ClasesObligatorio;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -36,8 +37,24 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Publicacion" asp-action="Postear">Subir un Post</a>
                             </li>
-                            <li class="nav-item text-right position-absolute top-0 end-0">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                            <li class="nav-item" style="height: 40px; padding-left:10px;">
+                                <form method="post" action="~/Busqueda/Buscar" style="display:inline;">
+                                    <div class="input-group mb-3" >
+                                         <input type="text" class="form-control bg-dark text-white" placeholder="Ingrese texto..." name="texto" style="width:300px;">
+                                         <span class="input-group-text bg-dark text-white">VA</span>
+                                         <input type="text" class="form-control bg-dark text-white" placeholder="Valor" name="valorAceptacion" style="width:70px;">
+                                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar Publicaciones</button>
+                                    </div>
+                                </form>
+                            </li>
+                            <li class="nav-item dropdown position-absolute top-0 end-0">
+                                <button class="btn btn-transparent text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @ViewBag.User.Nombre
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Solicitudes" asp-action="Index">Solicitudes</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a></li>
+                                </ul>
                             </li>
                         }
                     </ul>
@@ -50,7 +67,6 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer bg-black text-muted">
         <div class="container">
             &copy; 2023 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

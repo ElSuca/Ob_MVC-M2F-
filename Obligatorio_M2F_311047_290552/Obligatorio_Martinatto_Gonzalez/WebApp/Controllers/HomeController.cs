@@ -24,6 +24,7 @@ namespace WebApp.Controllers
             }
             else
             {
+                ViewBag.User = Sistema.GetInstancia().GetUsuario((HttpContext.Session.GetString("usuario"))) as Miembro;
                 ViewBag.Publicaciones = Sistema.GetInstancia().GetPublicaciones();
                 return View();
             }
@@ -40,7 +41,7 @@ namespace WebApp.Controllers
             Reaccion reaccion = publicacion.GetReaccion(miembro);
             if (reaccion == null)
             {
-                publicacion.AddReaccion(new Reaccion(TipoReaccion.like, miembro));
+                publicacion.Reacciones.Add(new Reaccion(TipoReaccion.like, miembro));
             }
             else
             {
@@ -51,7 +52,7 @@ namespace WebApp.Controllers
                 else
                 {
                     publicacion.Reacciones.Remove(reaccion);
-                    publicacion.AddReaccion(new Reaccion(TipoReaccion.like, miembro));
+                    publicacion.Reacciones.Add(new Reaccion(TipoReaccion.like, miembro));
                 }
             }
             return RedirectToAction("Index", "Home");
@@ -68,7 +69,7 @@ namespace WebApp.Controllers
             Reaccion reaccion = publicacion.GetReaccion(miembro);
             if (reaccion == null)
             {
-                publicacion.AddReaccion(new Reaccion(TipoReaccion.dislike, miembro));
+                publicacion.Reacciones.Add(new Reaccion(TipoReaccion.dislike, miembro));
             }
             else
             {
@@ -79,11 +80,49 @@ namespace WebApp.Controllers
                 else
                 {
                     publicacion.Reacciones.Remove(reaccion);
-                    publicacion.AddReaccion(new Reaccion(TipoReaccion.dislike, miembro));
+                    publicacion.Reacciones.Add(new Reaccion(TipoReaccion.dislike, miembro));
                 }
             }
             return RedirectToAction("Index", "Home");
         }
+        public IActionResult Comment()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Comment(int idPost, string titulo, string contenido)
+        {
+            try
+            {
+                sistema.RealizarComentario(new Comentario(titulo, (sistema.GetUsuario(HttpContext.Session.GetString("usuario")) as Miembro), contenido, false), idPost);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult EnviarSolicitud()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public IActionResult EnviarSolicitud(string emailReceptor)
+        {
+            try
+            {
+                sistema.EnviarSolicitud(emailReceptor);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
