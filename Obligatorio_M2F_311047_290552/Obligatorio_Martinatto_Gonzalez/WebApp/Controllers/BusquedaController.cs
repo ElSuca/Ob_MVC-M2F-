@@ -33,5 +33,12 @@ namespace WebApp.Controllers
             return View(lista);
 
         }
+
+        public IActionResult BuscarUsers() 
+        {
+            List<Miembro> lista = sistema.GetMiembrosOrdenados();
+            ViewBag.lista = lista;
+            return View(); 
+        }
     }
 }

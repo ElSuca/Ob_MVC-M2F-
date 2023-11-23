@@ -1,28 +1,39 @@
 ﻿@using ClasesObligatorio;
 @model Miembro;
-
-    <div class="cositoPaCenter">
-        <div class="login-container">
-            <h2 class="text-white">Solicitudes</h2>
-            @foreach(Solicitud solicitud in (ViewBag.User).GetSolicitudes())
-            {
-                @if (solicitud.EstadoSolicitud == Invitacion.PENDIENTE_APROBACION)
-                {
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body bg-dark">
-                              <h5 class="card-title text-white">@solicitud.Emisor.Nombre</h5>
-                              <h6 class="card-subtitle mb-2 text-body-secondary text-white">@solicitud.Emisor.Email</h6>
-                              <form method="post" action="~/Solicitudes/AceptarSolicitud" style="display:inline;">
-                                    <input type="hidden" name="idSolicitud" value="@solicitud.Id">
-                                    <button type="submit" class="btn btn-secondary btn-sm" style="display:inline;">Aceptar</button>
-                              </form>
-                              <form method="post" action="~/Solicitudes/RechazarSolicitud" style="display:inline;">
-                                    <input type="hidden" name="idSolicitud" value="@solicitud.Id">
-                                    <button type="submit" class="btn btn-secondary btn-sm" style="display:inline;">Rechazar</button>
-                              </form>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
+@if (ViewBag.Mensaje == "Hubo un problema, intente nuevamente")
+{
+    <div class="alert alert-danger">
+        @ViewBag.Mensaje
     </div>
+}
+else if (ViewBag.Mensaje == "" || ViewBag.Mensaje == null) { }
+else{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+<div class="cositoPaCenter">
+    <div class="login-container">
+        <h2 class="text-white">Solicitudes</h2>
+        @foreach (Solicitud solicitud in (ViewBag.User).GetSolicitudes())
+        {
+            @if (solicitud.EstadoSolicitud == Invitacion.PENDIENTE_APROBACION)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title text-white">@solicitud.Emisor.Nombre</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary text-white">@solicitud.Emisor.Email</h6>
+                        <form method="post" action="~/Solicitudes/AceptarSolicitud" style="display:inline;">
+                            <input type="hidden" name="idSolicitud" value="@solicitud.Id">
+                            <button type="submit" class="btn btn-secondary btn-sm" style="display:inline;">Aceptar</button>
+                        </form>
+                        <form method="post" action="~/Solicitudes/RechazarSolicitud" style="display:inline;">
+                            <input type="hidden" name="idSolicitud" value="@solicitud.Id">
+                            <button type="submit" class="btn btn-secondary btn-sm" style="display:inline;">Rechazar</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

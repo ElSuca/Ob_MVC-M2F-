@@ -62,6 +62,15 @@ namespace ClasesObligatorio
             }
             return resultado;
         }
+        public Boolean ValidarSolicitud(Solicitud solicitud)
+        {
+            Boolean resultado = false;
+            foreach(Solicitud similar in _solicitudes)
+            {
+                if(similar.Emisor == solicitud.Emisor && similar.EstadoSolicitud == Invitacion.PENDIENTE_APROBACION) resultado = true;
+            }
+            return resultado;
+        }
     }
 }
 

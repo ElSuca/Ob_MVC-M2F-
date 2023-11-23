@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z8bdS1pNz0ihnwQgP2qrv16lZCfKMREu/+prkQNFKcE=",
+  "Hash": "dFPE4uYVZ4qdvcnStRWvmuCOmSUrmgjYnXxJTRkJrDs=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -136,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\1e1.jpg",
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\cachorrao.jpg",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
       "BasePath": "_content/WebApp",
-      "RelativePath": "img/1e1.jpg",
+      "RelativePath": "img/cachorrao.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\1e1.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\cachorrao.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\carpincho.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/carpincho.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\carpincho.jpg"
     },
     {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\gatoputo.jpg",
@@ -187,12 +204,12 @@
       "OriginalItemSpec": "wwwroot\\img\\henchman.png"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\IMG-20230103-WA0009.jpg",
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\lets_fuckin_go.jpeg",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
       "BasePath": "_content/WebApp",
-      "RelativePath": "img/IMG-20230103-WA0009.jpg",
+      "RelativePath": "img/lets_fuckin_go.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,7 +218,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\IMG-20230103-WA0009.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\lets_fuckin_go.jpeg"
     },
     {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\libro_plantas.png",
@@ -221,6 +238,23 @@
       "OriginalItemSpec": "wwwroot\\img\\libro_plantas.png"
     },
     {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\macaco.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/macaco.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\macaco.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\mariposas_psicodelicas.png",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
@@ -236,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\mariposas_psicodelicas.png"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\morde_br.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/morde_br.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\morde_br.jpg"
     },
     {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\nerd.jpg",
@@ -272,6 +323,57 @@
       "OriginalItemSpec": "wwwroot\\img\\onedolar.jpg"
     },
     {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\oso_ruso.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/oso_ruso.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\oso_ruso.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\pizza_ananas.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/pizza_ananas.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pizza_ananas.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\precio-y-detalles.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/precio-y-detalles.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\precio-y-detalles.png"
+    },
+    {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\tutorial.png",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
@@ -287,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\tutorial.png"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\winnie.jpg",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "img/winnie.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\winnie.jpg"
     },
     {
       "Identity": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\js\\site.js",

@@ -34,28 +34,50 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Publicacion" asp-action="Postear">Subir un Post</a>
-                            </li>
-                            <li class="nav-item" style="height: 40px; padding-left:10px;">
-                                <form method="post" action="~/Busqueda/Buscar" style="display:inline;">
-                                    <div class="input-group mb-3" >
-                                         <input type="text" class="form-control bg-dark text-white" placeholder="Ingrese texto..." name="texto" style="width:300px;">
-                                         <span class="input-group-text bg-dark text-white">VA</span>
-                                         <input type="text" class="form-control bg-dark text-white" placeholder="Valor" name="valorAceptacion" style="width:70px;">
-                                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar Publicaciones</button>
-                                    </div>
-                                </form>
-                            </li>
-                            <li class="nav-item dropdown position-absolute top-0 end-0">
-                                <button class="btn btn-transparent text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    @ViewBag.User.Nombre
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Solicitudes" asp-action="Index">Solicitudes</a></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a></li>
-                                </ul>
-                            </li>
+                            @if (Context.Session.GetString("rol") == "Administrador")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Busqueda" asp-action="BuscarUsers">Listar Usuarios</a>
+                                </li>
+                            }
+                            @if (Context.Session.GetString("rol") == "Miembro")
+                            {
+                                @if (!ViewBag.User.Bloqueado)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Publicacion" asp-action="Postear">Subir un Post</a>
+                                    </li>
+                                }
+                            }
+                            @if (Context.Session.GetString("rol") == "Miembro")
+                            {
+                                <li class="nav-item" style="height: 40px; padding-left:10px;">
+                                    <form method="post" action="~/Busqueda/Buscar" style="display:inline;">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control bg-dark text-white" placeholder="Ingrese texto..." name="texto" style="width:300px;">
+                                            <span class="input-group-text bg-dark text-white">VA</span>
+                                            <input type="text" class="form-control bg-dark text-white" placeholder="Valor" name="valorAceptacion" style="width:70px;">
+                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            }
+                            @if (Context.Session.GetString("rol") == "Miembro")
+                            {
+                                <li class="nav-item dropdown position-absolute top-0 end-0">
+                                    <button class="btn btn-transparent text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @ViewBag.User.Nombre
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Solicitudes" asp-action="Index">Solicitudes</a></li>
+                                        <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (Context.Session.GetString("rol") == "Administrador")
+                            {
+                                <li class="nav-item position-absolute top-0 end-0"><a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a></li>
+                            }
                         }
                     </ul>
                 </div>

@@ -1,10 +1,31 @@
 ﻿@using ClasesObligatorio
 @model List<Publicacion>
-<h2 class="text-white text-center">Bienvenido!</h2>
-
-@foreach(Publicacion publicacion in ViewBag.Publicaciones)
+@if (ViewBag.Mensaje == "" || ViewBag.Mensaje == null) { }
+else if (ViewBag.Mensaje == "Usted ya envió una solicitud a este usuario.")
 {
-    @if (publicacion is Post && (publicacion.EsPrivado == false || publicacion.Autor.EsAmigo(ViewBag.User) || publicacion.Autor == ViewBag.User))
+    <div class="alert alert-danger">
+        @ViewBag.Mensaje
+    </div>
+}
+else
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+<center>
+    <h2 class="text-white text-center" style="display:inline;">
+        Bienvenido!
+        @if (Context.Session.GetString("rol") == "Administrador")
+        {
+            <h3 class="text-danger text-center" style="display:inline;">ADMIN MODE</h3>
+        }
+    </h2>
+</center>
+@foreach (Publicacion publicacion in ViewBag.Publicaciones)
+{
+    @if (publicacion is Post && (((publicacion.EsPrivado == false || publicacion.Autor.EsAmigo(ViewBag.User) || publicacion.Autor == ViewBag.User) && !(publicacion as Post).Censurado)
+   || Context.Session.GetString("rol") == "Administrador"))
     {
         Post post = publicacion as Post;
         <div class="cositoPaCenter">
@@ -13,15 +34,24 @@
                 <div class="card-body bg-black rounded">
                     <strong>
                         <p class="card-text text-white" style="padding-top:10px; display:inline;" name="titulo">
-                            "@publicacion.Titulo" 
-                            <br> 
+                            "@publicacion.Titulo"
+                            <br>
                             Posteado por: "@publicacion.Autor.Nombre"
-                            @if (!publicacion.Autor.EsAmigo(ViewBag.User) && publicacion.Autor != ViewBag.User)
+                            @if (!publicacion.Autor.EsAmigo(ViewBag.User) && publicacion.Autor != ViewBag.User && Context.Session.GetString("rol") == "Miembro")
                             {
                                 <form method="post" action="~/Home/EnviarSolicitud" style="display:inline;">
                                     <div class="cosoLike">
                                         <input type="hidden" name="emailReceptor" value="@publicacion.Autor.Email">
                                         <button type="submit" class="botonLike"><img src="~/css/add-user.png" /></button>
+                                    </div>
+                                </form>
+                            }
+                            @if (Context.Session.GetString("rol") == "Administrador")
+                            {
+                                <form method="post" action="~/Home/BloquearUsuario" style="display:inline;">
+                                    <div class="cosoLike">
+                                        <input type="hidden" name="email" value="@publicacion.Autor.Email">
+                                        <button type="submit" class="btn btn-sm btn-danger">Bloquear</button>
                                     </div>
                                 </form>
                             }
@@ -33,36 +63,48 @@
                             {
                             <p class="text-success" style="display:inline;">(Tu)</p>
                             }
-                            <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @publicacion.Fecha</p>
+                        <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @publicacion.Fecha</p>
                         </p>
                     </strong>
                     <p class="card-text text-white" name="contenido">@publicacion.Contenido</p>
-                    <form method="post" action="~/Home/Like" style="display:inline;">
-                        <div class="cosoLike">
-                            <input type="hidden" name="idPubli" value="@publicacion.Id">
-                            <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
-                            <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@publicacion.devolverLikes(publicacion.Reacciones)</p></strong>
-                        </div>
-                    </form>
-                    <form method="post" action="~/Home/Dislike" style="display:inline;">
-                        <div class="cosoLike">
-                            <input type="hidden" name="idPubli" value="@publicacion.Id">
-                            <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
-                            <strong><p class="card-text text-white" style="display:inline;">@publicacion.devolverDislikes(publicacion.Reacciones)</p></strong>
-                        </div>
-                    </form>
+                    @if (Context.Session.GetString("rol") == "Administrador")
+                    {
+                        <form method="post" action="~/Home/CensurarPost" style="display:inline;">
+                            <div class="cosoLike">
+                                <input type="hidden" name="idPost" value="@publicacion.Id">
+                                <button type="submit" class="btn btn-danger">Censurar</button>
+                            </div>
+                        </form>
+                    }
+                    @if (Context.Session.GetString("rol") == "Miembro")
+                    {
+                        <form method="post" action="~/Home/Like" style="display:inline;">
+                            <div class="cosoLike">
+                                <input type="hidden" name="idPubli" value="@publicacion.Id">
+                                <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
+                                <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@publicacion.devolverLikes(publicacion.Reacciones)</p></strong>
+                            </div>
+                        </form>
+                        <form method="post" action="~/Home/Dislike" style="display:inline;">
+                            <div class="cosoLike">
+                                <input type="hidden" name="idPubli" value="@publicacion.Id">
+                                <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
+                                <strong><p class="card-text text-white" style="display:inline;">@publicacion.devolverDislikes(publicacion.Reacciones)</p></strong>
+                            </div>
+                        </form>
+                    }
                     <h4 class="text-white">Comentarios</h4>
-                    @if ((publicacion as Post).GetComentarios() != null)
+                    @if ((publicacion as Post).GetComentarios().Count != 0)
                     {
                         @foreach (Comentario comentario in (publicacion as Post).GetComentarios())
                         {
                             <div class="card-body bg-dark rounded">
                                 <strong>
                                     <p class="card-text text-white" name="titulo" style="display: inline;">
-                                        "@comentario.Titulo" 
-                                        <br> 
+                                        "@comentario.Titulo"
+                                        <br>
                                         Posteado por: "@comentario.Autor.Nombre"
-                                        @if (!comentario.Autor.EsAmigo(ViewBag.User) && comentario.Autor != ViewBag.User)
+                                        @if (!comentario.Autor.EsAmigo(ViewBag.User) && comentario.Autor != ViewBag.User && Context.Session.GetString("rol") == "Miembro")
                                         {
                                             <form method="post" action="~/Home/EnviarSolicitud" style="display:inline;">
                                                 <div class="cosoLike">
@@ -79,25 +121,28 @@
                                         {
                                         <p class="card-text text-success" style="display:inline;">(Tu)</p>
                                         }
-                                        <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @comentario.Fecha</p>
-                                        
+                                    <p class="card-text text-white" style="padding-top:10px; display:inline;"> | @comentario.Fecha</p>
+
                                     </p>
                                 </strong>
                                 <p class="card-text text-white" name="contenido">@comentario.Contenido</p>
-                                <form method="post" action="~/Home/Like" style="display:inline;">
-                                    <div class="cosoLike">
-                                        <input type="hidden" name="idPubli" value="@comentario.Id">
-                                        <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
-                                        <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@comentario.devolverLikes(comentario.Reacciones)</p></strong>
-                                    </div>
-                                </form>
-                                <form method="post" action="~/Home/Dislike" style="display:inline;">
-                                    <div class="cosoLike">
-                                        <input type="hidden" name="idPubli" value="@comentario.Id">
-                                        <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
-                                        <strong><p class="card-text text-white" style="display:inline;">@comentario.devolverDislikes(comentario.Reacciones)</p></strong>
-                                    </div>
-                                </form>
+                                @if (Context.Session.GetString("rol") == "Miembro")
+                                {
+                                    <form method="post" action="~/Home/Like" style="display:inline;">
+                                        <div class="cosoLike">
+                                            <input type="hidden" name="idPubli" value="@comentario.Id">
+                                            <button type="submit" class="botonLike"><img src="~/css/like.png" /></button>
+                                            <strong><p class="card-text text-white" style="display:inline; padding-right:10px;">@comentario.devolverLikes(comentario.Reacciones)</p></strong>
+                                        </div>
+                                    </form>
+                                    <form method="post" action="~/Home/Dislike" style="display:inline;">
+                                        <div class="cosoLike">
+                                            <input type="hidden" name="idPubli" value="@comentario.Id">
+                                            <button type="submit" class="botonDislike"><img src="~/css/dislike.png" /></button>
+                                            <strong><p class="card-text text-white" style="display:inline;">@comentario.devolverDislikes(comentario.Reacciones)</p></strong>
+                                        </div>
+                                    </form>
+                                }
                             </div>
 
                         }
@@ -108,14 +153,17 @@
                             <p class="card-text text-white" name="titulo" style="display: inline;">Nadie ha comentado nada... se el primero!</p>
                         </div>
                     }
-                    <form method="post" action="~/Home/Comment">
-                        <br>
-                        <input type="hidden" name="idPost" value="@publicacion.Id">
-                        <input type="text" class="form-control bg-dark text-white" id="inputTitle" name="titulo" placeholder="Titulo...">
-                        <textarea class="form-control bg-dark text-white" placeholder="Comenta algo!" id="floatingTextarea" name="contenido" style="height:100px; resize:none;"></textarea>
-                        <br>
-                        <button type="submit" class="btn btn-secondary btn-sm">Comentar</button>
-                    </form>
+                    @if (Context.Session.GetString("rol") == "Miembro" && !ViewBag.User.Bloqueado)
+                    {
+                        <form method="post" action="~/Home/Comment">
+                            <br>
+                            <input type="hidden" name="idPost" value="@publicacion.Id">
+                            <input type="text" class="form-control bg-dark text-white" id="inputTitle" name="titulo" placeholder="Titulo...">
+                            <textarea class="form-control bg-dark text-white" placeholder="Comenta algo!" id="floatingTextarea" name="contenido" style="height:100px; resize:none;"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-secondary btn-sm">Comentar</button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>

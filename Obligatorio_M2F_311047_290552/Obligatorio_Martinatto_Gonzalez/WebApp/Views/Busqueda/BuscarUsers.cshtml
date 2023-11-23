@@ -1,0 +1,18 @@
+﻿@using ClasesObligatorio;
+<div class="cositoPaCenter">
+        <table class="table table-dark table-hover pt-30">
+            <thead>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Email</td>
+            </thead>
+            @foreach (Miembro miembro in ViewBag.lista)
+            {
+                <tr>
+                    <td>@miembro.Nombre</td>
+                    <td>@miembro.Apellido</td>
+                    <td>@miembro.Email</td>
+                </tr>
+            }
+        </table>
+</div>

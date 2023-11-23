@@ -16,7 +16,7 @@ namespace WebApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string mensaje)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
             {
@@ -24,7 +24,11 @@ namespace WebApp.Controllers
             }
             else
             {
-                ViewBag.User = Sistema.GetInstancia().GetUsuario((HttpContext.Session.GetString("usuario"))) as Miembro;
+                ViewBag.Mensaje = mensaje;
+                if (HttpContext.Session.GetString("rol") == "Miembro")
+                {
+                    ViewBag.User = Sistema.GetInstancia().GetUsuario((HttpContext.Session.GetString("usuario"))) as Miembro;
+                }
                 ViewBag.Publicaciones = Sistema.GetInstancia().GetPublicaciones();
                 return View();
             }
@@ -92,15 +96,17 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Comment(int idPost, string titulo, string contenido)
         {
+            string mensaje = "";
             try
             {
                 sistema.RealizarComentario(new Comentario(titulo, (sistema.GetUsuario(HttpContext.Session.GetString("usuario")) as Miembro), contenido, false), idPost);
+                mensaje = "Comentario realizado!";
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception();
+                mensaje = "Hubo un problema, intente nuevamente." + ex;
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new {mensaje});
         }
 
         public IActionResult EnviarSolicitud()
@@ -112,15 +118,52 @@ namespace WebApp.Controllers
 
         public IActionResult EnviarSolicitud(string emailReceptor)
         {
+            string mensaje = "";
             try
             {
-                sistema.EnviarSolicitud(emailReceptor);
+                bool resultado = sistema.EnviarSolicitud(emailReceptor);
+                if (!resultado) mensaje = "Usted ya envió una solicitud a este usuario."; 
             }
             catch
             {
                 throw new Exception();
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new {mensaje});
+        }
+
+        public IActionResult BloquearUsuario() { return View(); }
+        [HttpPost]
+        public IActionResult BloquearUsuario(string email)
+        {
+            string mensaje = "";
+            try
+            {
+                sistema.BloquearUsuario(email);
+                mensaje = "Usuario bloqueado con exito.";
+                return RedirectToAction("Index", "Home", new {mensaje});
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                return RedirectToAction("Index", "Home", new { mensaje });
+            }
+        }
+        public IActionResult CensurarPost() { return View(); }
+        [HttpPost]
+        public IActionResult CensurarPost(int idPost)
+        {
+            string mensaje = "";
+            try
+            {
+                sistema.CensurarPublicacion(idPost);
+                mensaje = "Post censurado con exito.";
+                return RedirectToAction("Index", "Home", new { mensaje });
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                return RedirectToAction("Index", "Home", new { mensaje });
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -19,6 +19,7 @@ namespace WebApp.Controllers
         public IActionResult Postear()
         {
             ViewBag.Autor = HttpContext.Session.GetString("usuario");
+            ViewBag.User = sistema.GetUsuario(HttpContext.Session.GetString("usuario")) as Miembro;
             return View(new Post());
         }
         [HttpPost]
@@ -29,7 +30,8 @@ namespace WebApp.Controllers
                 if (GuardarImagen(foto, post))
                 {
                     sistema.RealizarPost(post);
-                    return RedirectToAction("Index", "Home");
+                    string mensaje = "Post Realizado con Exito!";
+                    return RedirectToAction("Index", "Home", new { mensaje });
                 }
                 ViewBag.Mensaje = "Error al cargar la imagen.";
                 return View(new Post());

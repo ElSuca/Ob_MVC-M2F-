@@ -11,8 +11,9 @@ namespace WebApp.Controllers
             sistema = Sistema.GetInstancia();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string mensaje)
         {
+            ViewBag.mensaje = mensaje;
             ViewBag.User = Sistema.GetInstancia().GetUsuario((HttpContext.Session.GetString("usuario"))) as Miembro;
             return View();
         }
@@ -21,15 +22,34 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult AceptarSolicitud(int idSolicitud)
         {
+            string mensaje = "";
             try
             {
                 sistema.AceptarSolicitud(idSolicitud);
+                mensaje = "Solicitud aceptada!";
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception();
+                mensaje = "Hubo un problema, intente nuevamente." + ex;
             }
-            return RedirectToAction("Index", "Solicitudes");
+            return RedirectToAction("Index", "Solicitudes", new { mensaje });
+        }
+
+        public IActionResult RechazarSolicitud() { return View(); }
+        [HttpPost]
+        public IActionResult RechazarSolicitud(int idSolicitud)
+        {
+            string mensaje = "";
+            try
+            {
+                sistema.RechazarSolicitud(idSolicitud);
+                mensaje = "Solicitud rechazada correctamente.";
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Hubo un problema, intente nuevamente." + ex;
+            }
+            return RedirectToAction("Index", "Solicitudes", new { mensaje });
         }
     }
 }

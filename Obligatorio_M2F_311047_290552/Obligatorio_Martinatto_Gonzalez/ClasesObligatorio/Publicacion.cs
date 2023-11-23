@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClasesObligatorio
 {
-    public abstract class Publicacion : IComparable<Publicacion>
+    public abstract class Publicacion
     {
         public int Id { get; set; }
         public static int S_UltimoId { get; set; }
@@ -75,10 +75,6 @@ namespace ClasesObligatorio
                 }
             }
             return cantidad;
-        }
-        public int CompareTo(Publicacion? other)
-        {
-            return Titulo.CompareTo(other.Titulo);
         }
     }
 }

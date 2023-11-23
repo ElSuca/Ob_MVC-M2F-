@@ -25,12 +25,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\1e1.jpg",
-      "PackagePath": "staticwebassets\\img\\1e1.jpg"
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\cachorrao.jpg",
+      "PackagePath": "staticwebassets\\img\\cachorrao.jpg"
     },
     {
-      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\IMG-20230103-WA0009.jpg",
-      "PackagePath": "staticwebassets\\img\\IMG-20230103-WA0009.jpg"
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\carpincho.jpg",
+      "PackagePath": "staticwebassets\\img\\carpincho.jpg"
     },
     {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\gatoputo.jpg",
@@ -41,12 +41,24 @@
       "PackagePath": "staticwebassets\\img\\henchman.png"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\lets_fuckin_go.jpeg",
+      "PackagePath": "staticwebassets\\img\\lets_fuckin_go.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\libro_plantas.png",
       "PackagePath": "staticwebassets\\img\\libro_plantas.png"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\macaco.jpg",
+      "PackagePath": "staticwebassets\\img\\macaco.jpg"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\mariposas_psicodelicas.png",
       "PackagePath": "staticwebassets\\img\\mariposas_psicodelicas.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\morde_br.jpg",
+      "PackagePath": "staticwebassets\\img\\morde_br.jpg"
     },
     {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\nerd.jpg",
@@ -57,8 +69,24 @@
       "PackagePath": "staticwebassets\\img\\onedolar.jpg"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\oso_ruso.jpg",
+      "PackagePath": "staticwebassets\\img\\oso_ruso.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\pizza_ananas.jpg",
+      "PackagePath": "staticwebassets\\img\\pizza_ananas.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\precio-y-detalles.png",
+      "PackagePath": "staticwebassets\\img\\precio-y-detalles.png"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\tutorial.png",
       "PackagePath": "staticwebassets\\img\\tutorial.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\img\\winnie.jpg",
+      "PackagePath": "staticwebassets\\img\\winnie.jpg"
     },
     {
       "Id": "C:\\Users\\Usuario\\Ob_MVC-M2F-\\Obligatorio_M2F_311047_290552\\Obligatorio_Martinatto_Gonzalez\\WebApp\\wwwroot\\js\\site.js",
